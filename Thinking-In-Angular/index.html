@@ -1,0 +1,27 @@
+<html ng-app = "myApp">
+<head>
+      <title>Angular | Hello</title>
+      <script src="angular.js"></script>
+</head>
+<body>
+      <div ng-controller = "MainCtrl">   <!-- Using a module -->
+            <h1>Hello Angular!</h1>
+            <p ng-if="hourOfDay < 12">Good Morning</p>
+            <p ng-if="hourOfDay == 12">Good Noon</p>
+            <p ng-if="hourOfDay >12 && hourOfDay < 16">Good Afternoon</p>
+            <p ng-if="hourOfDay >= 16">Good Evening</p>
+            <p>The hourOfDay is :: <span ng-bind = "hourOfDay"></span> </p>
+            <p>The hourOfDay is :: {{hourOfDay}} </p>
+      </div>
+      <script>
+            var module = angular.module("myApp", []); <!-- Creating a module -->
+            module.controller ("MainCtrl", Main);  <!-- Registering your controller -->
+
+            function Main($scope){ //$scope -> is something which is pass by angular automatically
+                                   //while calling the controller
+                  $scope.hourOfDay = 9; //Same as ng-init we can also define variable here..
+                  console.log("Main function called");
+            }
+      </script>
+</body>
+</html>
